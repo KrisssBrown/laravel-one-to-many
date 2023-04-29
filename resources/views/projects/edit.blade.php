@@ -27,6 +27,9 @@
                 <label for="project_url" class="form-label">Inserisci url</label>
                 <input type="text" class="form-control" id="project_url" name="project_url" value="{{ $project->project_url }}">
             </div>
+            <a class="mb-3">
+                <button type="submit" class="btn btn-primary mb-3">Salva modifiche</button>
+            </a>
         </form>
 
     </div>

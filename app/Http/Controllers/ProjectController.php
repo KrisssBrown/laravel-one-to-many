@@ -38,8 +38,22 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $newProject = new Project();
+
+        $newProject->nome_progetto = $data['nome_progetto'];
+        $newProject->cliente = $data['cliente'];
+        $newProject->descrizione = $data['descrizione'];
+        $newProject->project_url = $data['project_url'];
+        // $newProject->slug = $data['slug'];
+        
+
+        $newProject->save();
+
+        return to_route('projects.show', $newProject);
     }
+    
 
     /**
      * Display the specified resource.
@@ -80,7 +94,20 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->all();
+
+
+
+        $project->nome_progetto = $data['nome_progetto'];
+        $project->cliente = $data['cliente'];
+        $project->descrizione = $data['descrizione'];
+        $project->project_url = $data['project_url'];
+        // $project->slug = $data['slug'];
+        
+
+        $project->save();
+
+        return to_route('projects.show', $project);
     }
 
     /**
